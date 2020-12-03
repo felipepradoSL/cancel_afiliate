@@ -48,7 +48,10 @@ function saveSpreadSheet(obj) {
     var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
     var sheet = ss.getActiveSheet(); 
 
-    var product = obj.match(/(?!.*:)+(?!.*\s)+(.*)/g)
+    var product = obj.match(/(?!.*:)+(\s)+(.*)/g)
+    var arr = [];    
+  
+    arr[0] = product.toString().trim();
 
-    sheet.appendRow(product);
+    sheet.appendRow(arr);
 }
