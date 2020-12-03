@@ -96,7 +96,7 @@ function getAds(conds, list) {
     var campaignID = campaign.getId();
     var productName = campaign.getName().match(/(?!.*])(?!\ )(.*)/gm)[0];
 
-    var productID = campaign.getName().match(/(([0-9]+))/gm)[0];
+    //var productID = campaign.getName().match(/(([0-9]+))/gm)[0];
 
     //Logger.log("Produto: " + productName + " ID: " + productID + " Id campanha: " + campaignID);
     //Logger.log("TYPEOF produtct name: " + typeof productName);
@@ -107,9 +107,7 @@ function getAds(conds, list) {
       adData['productName'] = productName;
       deleteRowSpreadSheet(list.indexOf(productName));
       Logger.log("Produto cancelado: " + productName);
-    } else {
-      Logger.log('Não está na lista');
-    }
+    } 
 
     if (adData.productName) {
       ads.push(adData)
